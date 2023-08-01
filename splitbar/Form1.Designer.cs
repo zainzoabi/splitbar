@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace splitbar
 {
     partial class Form1
@@ -54,6 +56,13 @@ namespace splitbar
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // checkedListBox1
@@ -197,7 +206,7 @@ namespace splitbar
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(520, 226);
+            this.label10.Location = new System.Drawing.Point(506, 290);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(14, 13);
             this.label10.TabIndex = 25;
@@ -206,7 +215,7 @@ namespace splitbar
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(376, 222);
+            this.label11.Location = new System.Drawing.Point(362, 286);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(21, 13);
             this.label11.TabIndex = 24;
@@ -216,7 +225,7 @@ namespace splitbar
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label12.Location = new System.Drawing.Point(565, 222);
+            this.label12.Location = new System.Drawing.Point(551, 286);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 20);
             this.label12.TabIndex = 23;
@@ -224,21 +233,21 @@ namespace splitbar
             // 
             // fromStocknumTextBox
             // 
-            this.fromStocknumTextBox.Location = new System.Drawing.Point(414, 216);
+            this.fromStocknumTextBox.Location = new System.Drawing.Point(400, 280);
             this.fromStocknumTextBox.Name = "fromStocknumTextBox";
             this.fromStocknumTextBox.Size = new System.Drawing.Size(100, 20);
             this.fromStocknumTextBox.TabIndex = 22;
             // 
             // toStocknumTextBox
             // 
-            this.toStocknumTextBox.Location = new System.Drawing.Point(270, 215);
+            this.toStocknumTextBox.Location = new System.Drawing.Point(256, 279);
             this.toStocknumTextBox.Name = "toStocknumTextBox";
             this.toStocknumTextBox.Size = new System.Drawing.Size(100, 20);
             this.toStocknumTextBox.TabIndex = 21;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(158, 213);
+            this.button4.Location = new System.Drawing.Point(144, 277);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 20;
@@ -248,7 +257,7 @@ namespace splitbar
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(239, 218);
+            this.checkBox1.Location = new System.Drawing.Point(665, 292);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 26;
@@ -256,7 +265,7 @@ namespace splitbar
             // 
             // codeTextBox
             // 
-            this.codeTextBox.Location = new System.Drawing.Point(318, 301);
+            this.codeTextBox.Location = new System.Drawing.Point(304, 365);
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(196, 20);
             this.codeTextBox.TabIndex = 27;
@@ -265,17 +274,87 @@ namespace splitbar
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label13.Location = new System.Drawing.Point(552, 301);
+            this.label13.Location = new System.Drawing.Point(538, 365);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 20);
             this.label13.TabIndex = 28;
             this.label13.Text = "קןד";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label14.Location = new System.Drawing.Point(696, 287);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 20);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "להתעלם";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label15.Location = new System.Drawing.Point(640, 287);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(19, 20);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "מ";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(520, 222);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(14, 13);
+            this.label16.TabIndex = 35;
+            this.label16.Text = "מ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(376, 218);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(21, 13);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "עד";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label18.Location = new System.Drawing.Point(565, 212);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 20);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "קוד ספק";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(414, 212);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 32;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(270, 211);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 31;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.codeTextBox);
             this.Controls.Add(this.checkBox1);
@@ -308,6 +387,11 @@ namespace splitbar
 
         }
 
+        private void label14_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private System.Windows.Forms.CheckedListBox checkedListBox1;
@@ -335,6 +419,13 @@ namespace splitbar
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

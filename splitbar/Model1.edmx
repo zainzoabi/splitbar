@@ -1,0 +1,2259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GMS_DAYAGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountItemsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="250" />
+          <Property Name="ItemKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="AccountTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="150" />
+          <Property Name="BussinesName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="OsekMurshe" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="DriverName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CarNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="DistLineNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="DistLineName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Obligo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ObligoBalance" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSuspend" Type="bit" />
+        </EntityType>
+        <EntityType Name="AgentTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentCode" Type="int" />
+          <Property Name="Type" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="BarcodePartsTBL">
+          <Key>
+            <PropertyRef Name="PartName" />
+          </Key>
+          <Property Name="PartName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FromPosition" Type="int" />
+          <Property Name="ToPosition" Type="int" />
+        </EntityType>
+        <EntityType Name="carTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="CarID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="License" Type="varchar" MaxLength="50" />
+          <Property Name="TypeCarID" Type="varchar" MaxLength="50" />
+          <Property Name="TypeCarName" Type="varchar" MaxLength="50" />
+          <Property Name="Des" Type="varchar" MaxLength="50" />
+          <Property Name="DriverID" Type="varchar" MaxLength="50" />
+          <Property Name="DriverName" Type="varchar" MaxLength="50" />
+          <Property Name="DisttLine" Type="int" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="maxWeight" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CatalogVetrinarTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryVetrinarCode" Type="int" />
+        </EntityType>
+        <EntityType Name="CatArkavaTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatId" Type="int" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="MinQty" Type="float" />
+          <Property Name="StandardDeviation" Type="float" />
+          <Property Name="CatParentId" Type="int" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryCode" />
+          </Key>
+          <Property Name="CategoryCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PIC" Type="image" />
+        </EntityType>
+        <EntityType Name="CategoryVetrinarTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="catTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="varchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="150" />
+          <Property Name="SubCategoryCode" Type="int" />
+          <Property Name="CategoryCode" Type="int" />
+          <Property Name="PIC" Type="image" />
+          <Property Name="DayToPAG" Type="nvarchar" MaxLength="150" />
+          <Property Name="TypeItem" Type="int" />
+          <Property Name="SlaughterDate" Type="datetime" />
+          <Property Name="TaraCode" Type="int" />
+          <Property Name="IsArkava" Type="bit" />
+          <Property Name="IsSlaugherDate" Type="bit" />
+          <Property Name="IsKasherToPesach" Type="bit" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DistLineTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="150" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="ManufacturingDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpiryDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="MlayNum" Type="int" />
+          <Property Name="IsInStouck" Type="bit" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="SlaughterDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warehouses" Type="int" />
+          <Property Name="LocationCode" Type="int" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="WorkerId" Type="int" />
+          <Property Name="WorkerName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY_History">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="150" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="ManufacturingDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpiryDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="MlayNum" Type="int" />
+          <Property Name="IsInStouck" Type="bit" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="SlaughterDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warehouses" Type="int" />
+          <Property Name="LocationCode" Type="int" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="WorkerId" Type="int" />
+          <Property Name="WorkerName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY_SFIRA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="150" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="ManufacturingDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpiryDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="MlayNum" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="SlaughterDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warehouses" Type="int" />
+          <Property Name="LocationCode" Type="int" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="WorkerId" Type="int" />
+          <Property Name="WorkerName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY_SFIRA_Test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="150" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="ManufacturingDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpiryDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="MlayNum" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="SlaughterDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warehouses" Type="int" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY_Test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="150" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="ManufacturingDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpiryDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="MlayNum" Type="int" />
+          <Property Name="IsInStouck" Type="bit" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="SlaughterDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warehouses" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GMS_DAYAG.dbo.GMS_MLAY_tmp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GMS_MLAY_tmp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="150" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="ManufacturingDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpiryDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="MlayNum" Type="int" />
+          <Property Name="IsInStouck" Type="bit" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="SlaughterDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warehouses" Type="int" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InMlayItemsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InMlayTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="Neto" Type="float" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="SlaughterDate" Type="datetime" />
+          <Property Name="MishtahWeight" Type="float" />
+          <Property Name="SumKartons" Type="int" />
+          <Property Name="TaraWeight" Type="float" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MlayNum" Type="int" />
+          <Property Name="IsInStouck" Type="bit" />
+        </EntityType>
+        <EntityType Name="InMlayTBL_Test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="Neto" Type="float" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="SlaughterDate" Type="datetime" />
+          <Property Name="MishtahWeight" Type="float" />
+          <Property Name="SumKartons" Type="int" />
+          <Property Name="TaraWeight" Type="float" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MlayNum" Type="int" />
+          <Property Name="IsInStouck" Type="bit" />
+        </EntityType>
+        <EntityType Name="ItemsPerAccountTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="50" />
+          <Property Name="Size" Type="nvarchar" MaxLength="50" />
+          <Property Name="Spice" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ItemsToChargeTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LocationsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="WarehouseCode" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GMS_DAYAG.dbo.mexicani_chain' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mexicani_chain">
+          <Key>
+            <PropertyRef Name="Makat" />
+            <PropertyRef Name="Dea" />
+            <PropertyRef Name="SubCategory" />
+            <PropertyRef Name="Category" />
+          </Key>
+          <Property Name="Makat" Type="int" Nullable="false" />
+          <Property Name="Dea" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MlayInProcessTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="150" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="Qty" Type="float" />
+        </EntityType>
+        <EntityType Name="OrderCategoryTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderHedHistoryTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="UniqueID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="AgentKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentName" Type="nvarchar" MaxLength="250" />
+          <Property Name="DistLineNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="DistLineName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sent" Type="nvarchar(max)" />
+          <Property Name="Printed" Type="nvarchar" MaxLength="50" />
+          <Property Name="StockID" Type="nvarchar" MaxLength="50" />
+          <Property Name="OsekMurshe" Type="nvarchar" MaxLength="150" />
+          <Property Name="DriverName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CarNumber" Type="nvarchar" MaxLength="150" />
+          <Property Name="Obligo" Type="nvarchar" MaxLength="150" />
+          <Property Name="ObligoBalance" Type="real" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="550" />
+          <Property Name="Incoming" Type="bit" />
+          <Property Name="ERP" Type="nvarchar" MaxLength="50" />
+          <Property Name="PDF" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="OrderHedTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="UniqueID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="AgentKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentName" Type="nvarchar" MaxLength="250" />
+          <Property Name="DistLineNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="DistLineName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sent" Type="nvarchar(max)" />
+          <Property Name="Printed" Type="nvarchar" MaxLength="50" />
+          <Property Name="StockID" Type="nvarchar" MaxLength="50" />
+          <Property Name="OsekMurshe" Type="nvarchar" MaxLength="150" />
+          <Property Name="DriverName" Type="nchar" MaxLength="10" />
+          <Property Name="CarNumber" Type="nchar" MaxLength="10" />
+          <Property Name="Obligo" Type="nvarchar" MaxLength="150" />
+          <Property Name="ObligoBalance" Type="real" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="550" />
+          <Property Name="Incoming" Type="bit" />
+          <Property Name="ERP" Type="nvarchar" MaxLength="50" />
+          <Property Name="PDF" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="OrderRowHistoryTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="SupplyQty" Type="real" />
+          <Property Name="NewQty" Type="real" />
+          <Property Name="PlastonSupplyQty" Type="int" />
+          <Property Name="PlastonNewQty" Type="int" />
+          <Property Name="UniqueID" Type="nvarchar" MaxLength="250" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="StockMovesID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="StockID" Type="nvarchar" MaxLength="50" />
+          <Property Name="OriginalSupplyQty" Type="real" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+          <Property Name="PlastonCustomerQty" Type="int" />
+          <Property Name="AllocatedQty" Type="real" />
+          <Property Name="OriginallyOrderedQTY" Type="real" />
+          <Property Name="CollectionBag" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderRowTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="SupplyQty" Type="real" />
+          <Property Name="NewQty" Type="real" />
+          <Property Name="PlastonSupplyQty" Type="int" />
+          <Property Name="PlastonNewQty" Type="int" />
+          <Property Name="UniqueID" Type="nvarchar" MaxLength="250" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="StockMovesID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="StockID" Type="nvarchar" MaxLength="50" />
+          <Property Name="OriginalSupplyQty" Type="real" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+          <Property Name="PlastonCustomerQty" Type="int" />
+          <Property Name="AllocatedQty" Type="real" />
+          <Property Name="OriginallyOrderedQTY" Type="real" />
+          <Property Name="CollectionBag" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="DiscountPrc" Type="float" />
+        </EntityType>
+        <EntityType Name="ParamTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TermNum" Type="nvarchar" MaxLength="150" />
+          <Property Name="COM1" Type="nvarchar" MaxLength="150" />
+          <Property Name="CommunicationRate1" Type="nvarchar" MaxLength="150" />
+          <Property Name="COM2" Type="nvarchar" MaxLength="150" />
+          <Property Name="CommunicationRate2" Type="nvarchar" MaxLength="150" />
+          <Property Name="WorkWithOneWeight" Type="bit" />
+          <Property Name="Printer" Type="nvarchar" MaxLength="150" />
+          <Property Name="NumCopy" Type="int" />
+          <Property Name="KosherToPesach" Type="bit" />
+          <Property Name="KosherToPesachText" Type="nvarchar" MaxLength="150" />
+          <Property Name="Kashrut" Type="bit" />
+          <Property Name="KashrutText" Type="nvarchar" MaxLength="150" />
+          <Property Name="FreeTextForMadbeka" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsAriza" Type="bit" />
+          <Property Name="IsArkava" Type="bit" />
+          <Property Name="MinusInWeight" Type="bit" />
+          <Property Name="IsSumArkava" Type="bit" />
+          <Property Name="ChangeDatePagOrExpiryDate" Type="bit" />
+        </EntityType>
+        <EntityType Name="PirukTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="varchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="150" />
+          <Property Name="TypeWeight" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="WorkerId" Type="int" />
+          <Property Name="WorkerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaraWeight" Type="float" />
+          <Property Name="TaraName" Type="varchar" MaxLength="150" />
+          <Property Name="ParentMakat" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="PlastonTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="PlastonNewQty" Type="int" />
+          <Property Name="NewQty" Type="real" />
+          <Property Name="PlastonNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="SlaughterDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="MlayNum" Type="int" />
+        </EntityType>
+        <EntityType Name="RelocateHed">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="DistLineNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReturnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RelocateRow">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="150" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="Mlay" Type="real" />
+          <Property Name="minMlay" Type="real" />
+          <Property Name="ManufacturingDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpiryDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pallet" Type="int" />
+          <Property Name="MlayNum" Type="int" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SettingsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TempCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DocNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="HourLimit" Type="time" Precision="7" />
+          <Property Name="Faulty" Type="real" />
+          <Property Name="Numerator" Type="int" />
+          <Property Name="GlobalProductionDate" Type="date" />
+          <Property Name="GlobalDueDate" Type="date" />
+          <Property Name="ShidureComax" Type="nvarchar" MaxLength="50" />
+          <Property Name="SupplierMalyNumerator" Type="int" Nullable="false" />
+          <Property Name="RelocateDocNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="GmsMalyNumerator" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OsekMurshe" Type="nvarchar" MaxLength="50" />
+          <Property Name="MinistryOfHealthCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DriverPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeCustomer" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsAgent" Type="bit" />
+          <Property Name="IsDriver" Type="bit" />
+          <Property Name="IsRelocate" Type="bit" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="App_Version" Type="nvarchar" MaxLength="50" />
+          <Property Name="PasswordPrinter" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastShownOrders" Type="int" />
+          <Property Name="App_Version_Control" Type="nvarchar" MaxLength="50" />
+          <Property Name="isCharge" Type="bit" />
+          <Property Name="App_Version_Prisetim" Type="nvarchar" MaxLength="50" />
+          <Property Name="App_Version_Manager" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsAddInMlay" Type="bit" />
+          <Property Name="WeightTaraForArkava" Type="float" />
+          <Property Name="IsChangeDayToPag" Type="bit" />
+          <Property Name="IsSelectCustInNeto" Type="bit" />
+          <Property Name="IsChangeManufacturingDate" Type="bit" />
+          <Property Name="IsAddQtyInEnterToProduction" Type="bit" />
+          <Property Name="IsNotShowToMlayInProcess" Type="bit" />
+          <Property Name="IsPrintBarcodeToCust" Type="bit" />
+          <Property Name="IsLocations" Type="bit" />
+          <Property Name="PrintMadbekaByBarcode" Type="bit" />
+          <Property Name="IsSelectWorkerOnPirukNeto" Type="bit" />
+          <Property Name="InsertIntoMlayProduction" Type="bit" />
+          <Property Name="IsCloseOrderWhenNotEverythingIsCollected" Type="bit" />
+          <Property Name="InsertMlayByBarcode" Type="bit" />
+        </EntityType>
+        <EntityType Name="StatusTBL">
+          <Key>
+            <PropertyRef Name="StatusNumber" />
+          </Key>
+          <Property Name="StatusNumber" Type="int" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubCategoryCode" Type="int" Nullable="false" />
+          <Property Name="SubCategoryName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Category" Type="int" />
+        </EntityType>
+        <EntityType Name="SupplierMlayTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Makat" Type="nvarchar" MaxLength="150" />
+          <Property Name="Des" Type="nvarchar" MaxLength="250" />
+          <Property Name="Qty" Type="float" />
+        </EntityType>
+        <EntityType Name="SuppliersTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tara" Type="float" />
+        </EntityType>
+        <EntityType Name="TaraTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaraName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Tara" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'GMS_DAYAG.dbo.temp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="temp">
+          <Property Name="column1" Type="nvarchar" MaxLength="50" />
+          <Property Name="column2" Type="nvarchar" MaxLength="50" />
+          <Property Name="column3" Type="nvarchar" MaxLength="50" />
+          <Property Name="column4" Type="nvarchar" MaxLength="50" />
+          <Property Name="column5" Type="nvarchar" MaxLength="50" />
+          <Property Name="column6" Type="nvarchar" MaxLength="50" />
+          <Property Name="column7" Type="nvarchar" MaxLength="50" />
+          <Property Name="column8" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GMS_DAYAG.dbo.TempCodeTBL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TempCodeTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TempCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TypeCartTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CartName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CartWeight" Type="float" />
+        </EntityType>
+        <EntityType Name="TypeItemsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeItem" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WarehousesTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarehouseName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WorkerTBL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="GMS_DAYAGModelStoreContainer">
+          <EntitySet Name="AccountItemsTBL" EntityType="Self.AccountItemsTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountTBL" EntityType="Self.AccountTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentTBL" EntityType="Self.AgentTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BarcodePartsTBL" EntityType="Self.BarcodePartsTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="carTBL" EntityType="Self.carTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogVetrinarTBL" EntityType="Self.CatalogVetrinarTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatArkavaTBL" EntityType="Self.CatArkavaTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryVetrinarTBL" EntityType="Self.CategoryVetrinarTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="catTBL" EntityType="Self.catTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DistLineTBL" EntityType="Self.DistLineTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GMS_MLAY" EntityType="Self.GMS_MLAY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GMS_MLAY_History" EntityType="Self.GMS_MLAY_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GMS_MLAY_SFIRA" EntityType="Self.GMS_MLAY_SFIRA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GMS_MLAY_SFIRA_Test" EntityType="Self.GMS_MLAY_SFIRA_Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GMS_MLAY_Test" EntityType="Self.GMS_MLAY_Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InMlayItemsTBL" EntityType="Self.InMlayItemsTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InMlayTBL" EntityType="Self.InMlayTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InMlayTBL_Test" EntityType="Self.InMlayTBL_Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsPerAccountTBL" EntityType="Self.ItemsPerAccountTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsToChargeTBL" EntityType="Self.ItemsToChargeTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationsTBL" EntityType="Self.LocationsTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MlayInProcessTBL" EntityType="Self.MlayInProcessTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderCategoryTBL" EntityType="Self.OrderCategoryTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderHedHistoryTBL" EntityType="Self.OrderHedHistoryTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderHedTBL" EntityType="Self.OrderHedTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderRowHistoryTBL" EntityType="Self.OrderRowHistoryTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderRowTBL" EntityType="Self.OrderRowTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParamTBL" EntityType="Self.ParamTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PirukTBL" EntityType="Self.PirukTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlastonTBL" EntityType="Self.PlastonTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RelocateHed" EntityType="Self.RelocateHed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RelocateRow" EntityType="Self.RelocateRow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SettingsTBL" EntityType="Self.SettingsTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusTBL" EntityType="Self.StatusTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierMlayTBL" EntityType="Self.SupplierMlayTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuppliersTBL" EntityType="Self.SuppliersTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaraTBL" EntityType="Self.TaraTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeCartTBL" EntityType="Self.TypeCartTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeItemsTBL" EntityType="Self.TypeItemsTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WarehousesTBL" EntityType="Self.WarehousesTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkerTBL" EntityType="Self.WorkerTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GMS_MLAY_tmp" EntityType="Self.GMS_MLAY_tmp" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GMS_MLAY_tmp].[id] AS [id], 
+    [GMS_MLAY_tmp].[Makat] AS [Makat], 
+    [GMS_MLAY_tmp].[Barcode] AS [Barcode], 
+    [GMS_MLAY_tmp].[Des] AS [Des], 
+    [GMS_MLAY_tmp].[ManufacturingDate] AS [ManufacturingDate], 
+    [GMS_MLAY_tmp].[ExpiryDate] AS [ExpiryDate], 
+    [GMS_MLAY_tmp].[Weight] AS [Weight], 
+    [GMS_MLAY_tmp].[MlayNum] AS [MlayNum], 
+    [GMS_MLAY_tmp].[IsInStouck] AS [IsInStouck], 
+    [GMS_MLAY_tmp].[OrderNumber] AS [OrderNumber], 
+    [GMS_MLAY_tmp].[SlaughterDate] AS [SlaughterDate], 
+    [GMS_MLAY_tmp].[Warehouses] AS [Warehouses], 
+    [GMS_MLAY_tmp].[AccountKey] AS [AccountKey], 
+    [GMS_MLAY_tmp].[AccountName] AS [AccountName], 
+    [GMS_MLAY_tmp].[Remarks] AS [Remarks]
+    FROM [dbo].[GMS_MLAY_tmp] AS [GMS_MLAY_tmp]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="mexicani_chain" EntityType="Self.mexicani_chain" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mexicani_chain].[Makat] AS [Makat], 
+    [mexicani_chain].[Dea] AS [Dea], 
+    [mexicani_chain].[SubCategory] AS [SubCategory], 
+    [mexicani_chain].[Category] AS [Category]
+    FROM [dbo].[mexicani_chain] AS [mexicani_chain]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TempCodeTBL" EntityType="Self.TempCodeTBL" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TempCodeTBL].[id] AS [id], 
+    [TempCodeTBL].[TempCode] AS [TempCode], 
+    [TempCodeTBL].[UserCode] AS [UserCode], 
+    [TempCodeTBL].[UserName] AS [UserName]
+    FROM [dbo].[TempCodeTBL] AS [TempCodeTBL]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GMS_DAYAGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccountItemsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ItemKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AccountTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BussinesName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OsekMurshe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DriverName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CarNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DistLineNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DistLineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Obligo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ObligoBalance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsSuspend" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="AgentTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentCode" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BarcodePartsTBL">
+          <Key>
+            <PropertyRef Name="PartName" />
+          </Key>
+          <Property Name="PartName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FromPosition" Type="Int32" />
+          <Property Name="ToPosition" Type="Int32" />
+        </EntityType>
+        <EntityType Name="carTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="CarID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="License" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeCarID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeCarName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Des" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DriverID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DriverName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisttLine" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maxWeight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CatalogVetrinarTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryVetrinarCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CatArkavaTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatId" Type="Int32" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MinQty" Type="Double" />
+          <Property Name="StandardDeviation" Type="Double" />
+          <Property Name="CatParentId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryCode" />
+          </Key>
+          <Property Name="CategoryCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PIC" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CategoryVetrinarTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="catTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Des" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SubCategoryCode" Type="Int32" />
+          <Property Name="CategoryCode" Type="Int32" />
+          <Property Name="PIC" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DayToPAG" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TypeItem" Type="Int32" />
+          <Property Name="SlaughterDate" Type="DateTime" Precision="3" />
+          <Property Name="TaraCode" Type="Int32" />
+          <Property Name="IsArkava" Type="Boolean" />
+          <Property Name="IsSlaugherDate" Type="Boolean" />
+          <Property Name="IsKasherToPesach" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DistLineTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ManufacturingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="MlayNum" Type="Int32" />
+          <Property Name="IsInStouck" Type="Boolean" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SlaughterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Warehouses" Type="Int32" />
+          <Property Name="LocationCode" Type="Int32" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerId" Type="Int32" />
+          <Property Name="WorkerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY_History">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ManufacturingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="MlayNum" Type="Int32" />
+          <Property Name="IsInStouck" Type="Boolean" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="SlaughterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Warehouses" Type="Int32" />
+          <Property Name="LocationCode" Type="Int32" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerId" Type="Int32" />
+          <Property Name="WorkerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY_SFIRA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ManufacturingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="MlayNum" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SlaughterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Warehouses" Type="Int32" />
+          <Property Name="LocationCode" Type="Int32" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerId" Type="Int32" />
+          <Property Name="WorkerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY_SFIRA_Test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ManufacturingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="MlayNum" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SlaughterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Warehouses" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY_Test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ManufacturingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="MlayNum" Type="Int32" />
+          <Property Name="IsInStouck" Type="Boolean" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SlaughterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Warehouses" Type="Int32" />
+        </EntityType>
+        <EntityType Name="InMlayItemsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InMlayTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Neto" Type="Double" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="SlaughterDate" Type="DateTime" Precision="3" />
+          <Property Name="MishtahWeight" Type="Double" />
+          <Property Name="SumKartons" Type="Int32" />
+          <Property Name="TaraWeight" Type="Double" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MlayNum" Type="Int32" />
+          <Property Name="IsInStouck" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="InMlayTBL_Test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Neto" Type="Double" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="SlaughterDate" Type="DateTime" Precision="3" />
+          <Property Name="MishtahWeight" Type="Double" />
+          <Property Name="SumKartons" Type="Int32" />
+          <Property Name="TaraWeight" Type="Double" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MlayNum" Type="Int32" />
+          <Property Name="IsInStouck" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ItemsPerAccountTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Spice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ItemsToChargeTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LocationsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WarehouseCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MlayInProcessTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="Double" />
+        </EntityType>
+        <EntityType Name="OrderCategoryTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderHedHistoryTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UniqueID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="AgentKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DistLineNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DistLineName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Printed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StockID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OsekMurshe" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DriverName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CarNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Obligo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ObligoBalance" Type="Single" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="Incoming" Type="Boolean" />
+          <Property Name="ERP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PDF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderHedTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UniqueID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="AgentKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DistLineNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DistLineName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Printed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StockID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OsekMurshe" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DriverName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CarNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Obligo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ObligoBalance" Type="Single" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="Incoming" Type="Boolean" />
+          <Property Name="ERP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PDF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderRowHistoryTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SupplyQty" Type="Single" />
+          <Property Name="NewQty" Type="Single" />
+          <Property Name="PlastonSupplyQty" Type="Int32" />
+          <Property Name="PlastonNewQty" Type="Int32" />
+          <Property Name="UniqueID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StockMovesID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StockID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OriginalSupplyQty" Type="Single" />
+          <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PlastonCustomerQty" Type="Int32" />
+          <Property Name="AllocatedQty" Type="Single" />
+          <Property Name="OriginallyOrderedQTY" Type="Single" />
+          <Property Name="CollectionBag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OrderRowTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SupplyQty" Type="Single" />
+          <Property Name="NewQty" Type="Single" />
+          <Property Name="PlastonSupplyQty" Type="Int32" />
+          <Property Name="PlastonNewQty" Type="Int32" />
+          <Property Name="UniqueID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StockMovesID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StockID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OriginalSupplyQty" Type="Single" />
+          <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PlastonCustomerQty" Type="Int32" />
+          <Property Name="AllocatedQty" Type="Single" />
+          <Property Name="OriginallyOrderedQTY" Type="Single" />
+          <Property Name="CollectionBag" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="DiscountPrc" Type="Double" />
+        </EntityType>
+        <EntityType Name="ParamTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TermNum" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="COM1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CommunicationRate1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="COM2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CommunicationRate2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="WorkWithOneWeight" Type="Boolean" />
+          <Property Name="Printer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NumCopy" Type="Int32" />
+          <Property Name="KosherToPesach" Type="Boolean" />
+          <Property Name="KosherToPesachText" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Kashrut" Type="Boolean" />
+          <Property Name="KashrutText" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FreeTextForMadbeka" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsAriza" Type="Boolean" />
+          <Property Name="IsArkava" Type="Boolean" />
+          <Property Name="MinusInWeight" Type="Boolean" />
+          <Property Name="IsSumArkava" Type="Boolean" />
+          <Property Name="ChangeDatePagOrExpiryDate" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PirukTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Des" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TypeWeight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="WorkerId" Type="Int32" />
+          <Property Name="WorkerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaraWeight" Type="Double" />
+          <Property Name="TaraName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ParentMakat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PlastonTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PlastonNewQty" Type="Int32" />
+          <Property Name="NewQty" Type="Single" />
+          <Property Name="PlastonNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="SlaughterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MlayNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RelocateHed">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="DistLineNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RelocateRow">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Mlay" Type="Single" />
+          <Property Name="minMlay" Type="Single" />
+          <Property Name="ManufacturingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pallet" Type="Int32" />
+          <Property Name="MlayNum" Type="Int32" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SettingsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TempCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DocNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HourLimit" Type="Time" Precision="7" />
+          <Property Name="Faulty" Type="Single" />
+          <Property Name="Numerator" Type="Int32" />
+          <Property Name="GlobalProductionDate" Type="DateTime" Precision="0" />
+          <Property Name="GlobalDueDate" Type="DateTime" Precision="0" />
+          <Property Name="ShidureComax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierMalyNumerator" Type="Int32" Nullable="false" />
+          <Property Name="RelocateDocNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GmsMalyNumerator" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OsekMurshe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MinistryOfHealthCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DriverPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeCustomer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsAgent" Type="Boolean" />
+          <Property Name="IsDriver" Type="Boolean" />
+          <Property Name="IsRelocate" Type="Boolean" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="App_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordPrinter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastShownOrders" Type="Int32" />
+          <Property Name="App_Version_Control" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isCharge" Type="Boolean" />
+          <Property Name="App_Version_Prisetim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="App_Version_Manager" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsAddInMlay" Type="Boolean" />
+          <Property Name="WeightTaraForArkava" Type="Double" />
+          <Property Name="IsChangeDayToPag" Type="Boolean" />
+          <Property Name="IsSelectCustInNeto" Type="Boolean" />
+          <Property Name="IsChangeManufacturingDate" Type="Boolean" />
+          <Property Name="IsAddQtyInEnterToProduction" Type="Boolean" />
+          <Property Name="IsNotShowToMlayInProcess" Type="Boolean" />
+          <Property Name="IsPrintBarcodeToCust" Type="Boolean" />
+          <Property Name="IsLocations" Type="Boolean" />
+          <Property Name="PrintMadbekaByBarcode" Type="Boolean" />
+          <Property Name="IsSelectWorkerOnPirukNeto" Type="Boolean" />
+          <Property Name="InsertIntoMlayProduction" Type="Boolean" />
+          <Property Name="IsCloseOrderWhenNotEverythingIsCollected" Type="Boolean" />
+          <Property Name="InsertMlayByBarcode" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="StatusTBL">
+          <Key>
+            <PropertyRef Name="StatusNumber" />
+          </Key>
+          <Property Name="StatusNumber" Type="Int32" Nullable="false" />
+          <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubCategoryCode" Type="Int32" Nullable="false" />
+          <Property Name="SubCategoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SupplierMlayTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="Double" />
+        </EntityType>
+        <EntityType Name="SuppliersTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tara" Type="Double" />
+        </EntityType>
+        <EntityType Name="TaraTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaraName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Tara" Type="Double" />
+        </EntityType>
+        <EntityType Name="TypeCartTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CartName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CartWeight" Type="Double" />
+        </EntityType>
+        <EntityType Name="TypeItemsTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeItem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WarehousesTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WorkerTBL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GMS_MLAY_tmp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Makat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Des" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ManufacturingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="MlayNum" Type="Int32" />
+          <Property Name="IsInStouck" Type="Boolean" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SlaughterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Warehouses" Type="Int32" />
+          <Property Name="AccountKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mexicani_chain">
+          <Key>
+            <PropertyRef Name="Makat" />
+            <PropertyRef Name="Dea" />
+            <PropertyRef Name="SubCategory" />
+            <PropertyRef Name="Category" />
+          </Key>
+          <Property Name="Makat" Type="Int32" Nullable="false" />
+          <Property Name="Dea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempCodeTBL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TempCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="GMS_DAYAGEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountItemsTBL" EntityType="Self.AccountItemsTBL" />
+          <EntitySet Name="AccountTBL" EntityType="Self.AccountTBL" />
+          <EntitySet Name="AgentTBL" EntityType="Self.AgentTBL" />
+          <EntitySet Name="BarcodePartsTBL" EntityType="Self.BarcodePartsTBL" />
+          <EntitySet Name="carTBL" EntityType="Self.carTBL" />
+          <EntitySet Name="CatalogVetrinarTBL" EntityType="Self.CatalogVetrinarTBL" />
+          <EntitySet Name="CatArkavaTBL" EntityType="Self.CatArkavaTBL" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="CategoryVetrinarTBL" EntityType="Self.CategoryVetrinarTBL" />
+          <EntitySet Name="catTBL" EntityType="Self.catTBL" />
+          <EntitySet Name="DistLineTBL" EntityType="Self.DistLineTBL" />
+          <EntitySet Name="GMS_MLAY" EntityType="Self.GMS_MLAY" />
+          <EntitySet Name="GMS_MLAY_History" EntityType="Self.GMS_MLAY_History" />
+          <EntitySet Name="GMS_MLAY_SFIRA" EntityType="Self.GMS_MLAY_SFIRA" />
+          <EntitySet Name="GMS_MLAY_SFIRA_Test" EntityType="Self.GMS_MLAY_SFIRA_Test" />
+          <EntitySet Name="GMS_MLAY_Test" EntityType="Self.GMS_MLAY_Test" />
+          <EntitySet Name="InMlayItemsTBL" EntityType="Self.InMlayItemsTBL" />
+          <EntitySet Name="InMlayTBL" EntityType="Self.InMlayTBL" />
+          <EntitySet Name="InMlayTBL_Test" EntityType="Self.InMlayTBL_Test" />
+          <EntitySet Name="ItemsPerAccountTBL" EntityType="Self.ItemsPerAccountTBL" />
+          <EntitySet Name="ItemsToChargeTBL" EntityType="Self.ItemsToChargeTBL" />
+          <EntitySet Name="LocationsTBL" EntityType="Self.LocationsTBL" />
+          <EntitySet Name="MlayInProcessTBL" EntityType="Self.MlayInProcessTBL" />
+          <EntitySet Name="OrderCategoryTBL" EntityType="Self.OrderCategoryTBL" />
+          <EntitySet Name="OrderHedHistoryTBL" EntityType="Self.OrderHedHistoryTBL" />
+          <EntitySet Name="OrderHedTBL" EntityType="Self.OrderHedTBL" />
+          <EntitySet Name="OrderRowHistoryTBL" EntityType="Self.OrderRowHistoryTBL" />
+          <EntitySet Name="OrderRowTBL" EntityType="Self.OrderRowTBL" />
+          <EntitySet Name="ParamTBL" EntityType="Self.ParamTBL" />
+          <EntitySet Name="PirukTBL" EntityType="Self.PirukTBL" />
+          <EntitySet Name="PlastonTBL" EntityType="Self.PlastonTBL" />
+          <EntitySet Name="RelocateHed" EntityType="Self.RelocateHed" />
+          <EntitySet Name="RelocateRow" EntityType="Self.RelocateRow" />
+          <EntitySet Name="SettingsTBL" EntityType="Self.SettingsTBL" />
+          <EntitySet Name="StatusTBL" EntityType="Self.StatusTBL" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" />
+          <EntitySet Name="SupplierMlayTBL" EntityType="Self.SupplierMlayTBL" />
+          <EntitySet Name="SuppliersTBL" EntityType="Self.SuppliersTBL" />
+          <EntitySet Name="TaraTBL" EntityType="Self.TaraTBL" />
+          <EntitySet Name="TypeCartTBL" EntityType="Self.TypeCartTBL" />
+          <EntitySet Name="TypeItemsTBL" EntityType="Self.TypeItemsTBL" />
+          <EntitySet Name="WarehousesTBL" EntityType="Self.WarehousesTBL" />
+          <EntitySet Name="WorkerTBL" EntityType="Self.WorkerTBL" />
+          <EntitySet Name="GMS_MLAY_tmp" EntityType="Self.GMS_MLAY_tmp" />
+          <EntitySet Name="mexicani_chain" EntityType="Self.mexicani_chain" />
+          <EntitySet Name="TempCodeTBL" EntityType="Self.TempCodeTBL" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GMS_DAYAGModelStoreContainer" CdmEntityContainer="GMS_DAYAGEntities">
+          <EntitySetMapping Name="AccountItemsTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.AccountItemsTBL">
+              <MappingFragment StoreEntitySet="AccountItemsTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="ItemKey" ColumnName="ItemKey" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.AccountTBL">
+              <MappingFragment StoreEntitySet="AccountTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="BussinesName" ColumnName="BussinesName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="OsekMurshe" ColumnName="OsekMurshe" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+                <ScalarProperty Name="DistLineNumber" ColumnName="DistLineNumber" />
+                <ScalarProperty Name="DistLineName" ColumnName="DistLineName" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Obligo" ColumnName="Obligo" />
+                <ScalarProperty Name="ObligoBalance" ColumnName="ObligoBalance" />
+                <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+                <ScalarProperty Name="IsSuspend" ColumnName="IsSuspend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.AgentTBL">
+              <MappingFragment StoreEntitySet="AgentTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+                <ScalarProperty Name="AgentCode" ColumnName="AgentCode" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BarcodePartsTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.BarcodePartsTBL">
+              <MappingFragment StoreEntitySet="BarcodePartsTBL">
+                <ScalarProperty Name="PartName" ColumnName="PartName" />
+                <ScalarProperty Name="FromPosition" ColumnName="FromPosition" />
+                <ScalarProperty Name="ToPosition" ColumnName="ToPosition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="carTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.carTBL">
+              <MappingFragment StoreEntitySet="carTBL">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="License" ColumnName="License" />
+                <ScalarProperty Name="TypeCarID" ColumnName="TypeCarID" />
+                <ScalarProperty Name="TypeCarName" ColumnName="TypeCarName" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="DisttLine" ColumnName="DisttLine" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DriverPhone" ColumnName="DriverPhone" />
+                <ScalarProperty Name="maxWeight" ColumnName="maxWeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogVetrinarTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.CatalogVetrinarTBL">
+              <MappingFragment StoreEntitySet="CatalogVetrinarTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="CategoryVetrinarCode" ColumnName="CategoryVetrinarCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatArkavaTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.CatArkavaTBL">
+              <MappingFragment StoreEntitySet="CatArkavaTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CatId" ColumnName="CatId" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="MinQty" ColumnName="MinQty" />
+                <ScalarProperty Name="StandardDeviation" ColumnName="StandardDeviation" />
+                <ScalarProperty Name="CatParentId" ColumnName="CatParentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="PIC" ColumnName="PIC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryVetrinarTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.CategoryVetrinarTBL">
+              <MappingFragment StoreEntitySet="CategoryVetrinarTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.catTBL">
+              <MappingFragment StoreEntitySet="catTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="SubCategoryCode" ColumnName="SubCategoryCode" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="PIC" ColumnName="PIC" />
+                <ScalarProperty Name="DayToPAG" ColumnName="DayToPAG" />
+                <ScalarProperty Name="TypeItem" ColumnName="TypeItem" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="TaraCode" ColumnName="TaraCode" />
+                <ScalarProperty Name="IsArkava" ColumnName="IsArkava" />
+                <ScalarProperty Name="IsSlaugherDate" ColumnName="IsSlaugherDate" />
+                <ScalarProperty Name="IsKasherToPesach" ColumnName="IsKasherToPesach" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistLineTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.DistLineTBL">
+              <MappingFragment StoreEntitySet="DistLineTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GMS_MLAY">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.GMS_MLAY">
+              <MappingFragment StoreEntitySet="GMS_MLAY">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="ManufacturingDate" ColumnName="ManufacturingDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+                <ScalarProperty Name="IsInStouck" ColumnName="IsInStouck" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="Warehouses" ColumnName="Warehouses" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="WorkerName" ColumnName="WorkerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GMS_MLAY_History">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.GMS_MLAY_History">
+              <MappingFragment StoreEntitySet="GMS_MLAY_History">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="ManufacturingDate" ColumnName="ManufacturingDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+                <ScalarProperty Name="IsInStouck" ColumnName="IsInStouck" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="Warehouses" ColumnName="Warehouses" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="WorkerName" ColumnName="WorkerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GMS_MLAY_SFIRA">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.GMS_MLAY_SFIRA">
+              <MappingFragment StoreEntitySet="GMS_MLAY_SFIRA">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="ManufacturingDate" ColumnName="ManufacturingDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="Warehouses" ColumnName="Warehouses" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="WorkerName" ColumnName="WorkerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GMS_MLAY_SFIRA_Test">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.GMS_MLAY_SFIRA_Test">
+              <MappingFragment StoreEntitySet="GMS_MLAY_SFIRA_Test">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="ManufacturingDate" ColumnName="ManufacturingDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="Warehouses" ColumnName="Warehouses" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GMS_MLAY_Test">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.GMS_MLAY_Test">
+              <MappingFragment StoreEntitySet="GMS_MLAY_Test">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="ManufacturingDate" ColumnName="ManufacturingDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+                <ScalarProperty Name="IsInStouck" ColumnName="IsInStouck" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="Warehouses" ColumnName="Warehouses" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InMlayItemsTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.InMlayItemsTBL">
+              <MappingFragment StoreEntitySet="InMlayItemsTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InMlayTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.InMlayTBL">
+              <MappingFragment StoreEntitySet="InMlayTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="Neto" ColumnName="Neto" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="MishtahWeight" ColumnName="MishtahWeight" />
+                <ScalarProperty Name="SumKartons" ColumnName="SumKartons" />
+                <ScalarProperty Name="TaraWeight" ColumnName="TaraWeight" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+                <ScalarProperty Name="IsInStouck" ColumnName="IsInStouck" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InMlayTBL_Test">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.InMlayTBL_Test">
+              <MappingFragment StoreEntitySet="InMlayTBL_Test">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="Neto" ColumnName="Neto" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="MishtahWeight" ColumnName="MishtahWeight" />
+                <ScalarProperty Name="SumKartons" ColumnName="SumKartons" />
+                <ScalarProperty Name="TaraWeight" ColumnName="TaraWeight" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+                <ScalarProperty Name="IsInStouck" ColumnName="IsInStouck" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsPerAccountTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.ItemsPerAccountTBL">
+              <MappingFragment StoreEntitySet="ItemsPerAccountTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Spice" ColumnName="Spice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsToChargeTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.ItemsToChargeTBL">
+              <MappingFragment StoreEntitySet="ItemsToChargeTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationsTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.LocationsTBL">
+              <MappingFragment StoreEntitySet="LocationsTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="WarehouseCode" ColumnName="WarehouseCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MlayInProcessTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.MlayInProcessTBL">
+              <MappingFragment StoreEntitySet="MlayInProcessTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderCategoryTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.OrderCategoryTBL">
+              <MappingFragment StoreEntitySet="OrderCategoryTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderHedHistoryTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.OrderHedHistoryTBL">
+              <MappingFragment StoreEntitySet="OrderHedHistoryTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AgentKey" ColumnName="AgentKey" />
+                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+                <ScalarProperty Name="DistLineNum" ColumnName="DistLineNum" />
+                <ScalarProperty Name="DistLineName" ColumnName="DistLineName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sent" ColumnName="Sent" />
+                <ScalarProperty Name="Printed" ColumnName="Printed" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="OsekMurshe" ColumnName="OsekMurshe" />
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+                <ScalarProperty Name="Obligo" ColumnName="Obligo" />
+                <ScalarProperty Name="ObligoBalance" ColumnName="ObligoBalance" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Incoming" ColumnName="Incoming" />
+                <ScalarProperty Name="ERP" ColumnName="ERP" />
+                <ScalarProperty Name="PDF" ColumnName="PDF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderHedTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.OrderHedTBL">
+              <MappingFragment StoreEntitySet="OrderHedTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AgentKey" ColumnName="AgentKey" />
+                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+                <ScalarProperty Name="DistLineNum" ColumnName="DistLineNum" />
+                <ScalarProperty Name="DistLineName" ColumnName="DistLineName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sent" ColumnName="Sent" />
+                <ScalarProperty Name="Printed" ColumnName="Printed" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="OsekMurshe" ColumnName="OsekMurshe" />
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+                <ScalarProperty Name="Obligo" ColumnName="Obligo" />
+                <ScalarProperty Name="ObligoBalance" ColumnName="ObligoBalance" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Incoming" ColumnName="Incoming" />
+                <ScalarProperty Name="ERP" ColumnName="ERP" />
+                <ScalarProperty Name="PDF" ColumnName="PDF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderRowHistoryTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.OrderRowHistoryTBL">
+              <MappingFragment StoreEntitySet="OrderRowHistoryTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="SupplyQty" ColumnName="SupplyQty" />
+                <ScalarProperty Name="NewQty" ColumnName="NewQty" />
+                <ScalarProperty Name="PlastonSupplyQty" ColumnName="PlastonSupplyQty" />
+                <ScalarProperty Name="PlastonNewQty" ColumnName="PlastonNewQty" />
+                <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="StockMovesID" ColumnName="StockMovesID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="OriginalSupplyQty" ColumnName="OriginalSupplyQty" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="PlastonCustomerQty" ColumnName="PlastonCustomerQty" />
+                <ScalarProperty Name="AllocatedQty" ColumnName="AllocatedQty" />
+                <ScalarProperty Name="OriginallyOrderedQTY" ColumnName="OriginallyOrderedQTY" />
+                <ScalarProperty Name="CollectionBag" ColumnName="CollectionBag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderRowTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.OrderRowTBL">
+              <MappingFragment StoreEntitySet="OrderRowTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="SupplyQty" ColumnName="SupplyQty" />
+                <ScalarProperty Name="NewQty" ColumnName="NewQty" />
+                <ScalarProperty Name="PlastonSupplyQty" ColumnName="PlastonSupplyQty" />
+                <ScalarProperty Name="PlastonNewQty" ColumnName="PlastonNewQty" />
+                <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="StockMovesID" ColumnName="StockMovesID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="OriginalSupplyQty" ColumnName="OriginalSupplyQty" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="PlastonCustomerQty" ColumnName="PlastonCustomerQty" />
+                <ScalarProperty Name="AllocatedQty" ColumnName="AllocatedQty" />
+                <ScalarProperty Name="OriginallyOrderedQTY" ColumnName="OriginallyOrderedQTY" />
+                <ScalarProperty Name="CollectionBag" ColumnName="CollectionBag" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DiscountPrc" ColumnName="DiscountPrc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParamTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.ParamTBL">
+              <MappingFragment StoreEntitySet="ParamTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TermNum" ColumnName="TermNum" />
+                <ScalarProperty Name="COM1" ColumnName="COM1" />
+                <ScalarProperty Name="CommunicationRate1" ColumnName="CommunicationRate1" />
+                <ScalarProperty Name="COM2" ColumnName="COM2" />
+                <ScalarProperty Name="CommunicationRate2" ColumnName="CommunicationRate2" />
+                <ScalarProperty Name="WorkWithOneWeight" ColumnName="WorkWithOneWeight" />
+                <ScalarProperty Name="Printer" ColumnName="Printer" />
+                <ScalarProperty Name="NumCopy" ColumnName="NumCopy" />
+                <ScalarProperty Name="KosherToPesach" ColumnName="KosherToPesach" />
+                <ScalarProperty Name="KosherToPesachText" ColumnName="KosherToPesachText" />
+                <ScalarProperty Name="Kashrut" ColumnName="Kashrut" />
+                <ScalarProperty Name="KashrutText" ColumnName="KashrutText" />
+                <ScalarProperty Name="FreeTextForMadbeka" ColumnName="FreeTextForMadbeka" />
+                <ScalarProperty Name="IsAriza" ColumnName="IsAriza" />
+                <ScalarProperty Name="IsArkava" ColumnName="IsArkava" />
+                <ScalarProperty Name="MinusInWeight" ColumnName="MinusInWeight" />
+                <ScalarProperty Name="IsSumArkava" ColumnName="IsSumArkava" />
+                <ScalarProperty Name="ChangeDatePagOrExpiryDate" ColumnName="ChangeDatePagOrExpiryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PirukTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.PirukTBL">
+              <MappingFragment StoreEntitySet="PirukTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="TypeWeight" ColumnName="TypeWeight" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="WorkerName" ColumnName="WorkerName" />
+                <ScalarProperty Name="TaraWeight" ColumnName="TaraWeight" />
+                <ScalarProperty Name="TaraName" ColumnName="TaraName" />
+                <ScalarProperty Name="ParentMakat" ColumnName="ParentMakat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlastonTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.PlastonTBL">
+              <MappingFragment StoreEntitySet="PlastonTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="PlastonNewQty" ColumnName="PlastonNewQty" />
+                <ScalarProperty Name="NewQty" ColumnName="NewQty" />
+                <ScalarProperty Name="PlastonNumber" ColumnName="PlastonNumber" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RelocateHed">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.RelocateHed">
+              <MappingFragment StoreEntitySet="RelocateHed">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="DistLineNum" ColumnName="DistLineNum" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="FromCode" ColumnName="FromCode" />
+                <ScalarProperty Name="FromName" ColumnName="FromName" />
+                <ScalarProperty Name="ToCode" ColumnName="ToCode" />
+                <ScalarProperty Name="ToName" ColumnName="ToName" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RelocateRow">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.RelocateRow">
+              <MappingFragment StoreEntitySet="RelocateRow">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="Mlay" ColumnName="Mlay" />
+                <ScalarProperty Name="minMlay" ColumnName="minMlay" />
+                <ScalarProperty Name="ManufacturingDate" ColumnName="ManufacturingDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Pallet" ColumnName="Pallet" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SettingsTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.SettingsTBL">
+              <MappingFragment StoreEntitySet="SettingsTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TempCode" ColumnName="TempCode" />
+                <ScalarProperty Name="DocNumber" ColumnName="DocNumber" />
+                <ScalarProperty Name="HourLimit" ColumnName="HourLimit" />
+                <ScalarProperty Name="Faulty" ColumnName="Faulty" />
+                <ScalarProperty Name="Numerator" ColumnName="Numerator" />
+                <ScalarProperty Name="GlobalProductionDate" ColumnName="GlobalProductionDate" />
+                <ScalarProperty Name="GlobalDueDate" ColumnName="GlobalDueDate" />
+                <ScalarProperty Name="ShidureComax" ColumnName="ShidureComax" />
+                <ScalarProperty Name="SupplierMalyNumerator" ColumnName="SupplierMalyNumerator" />
+                <ScalarProperty Name="RelocateDocNumber" ColumnName="RelocateDocNumber" />
+                <ScalarProperty Name="GmsMalyNumerator" ColumnName="GmsMalyNumerator" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="OsekMurshe" ColumnName="OsekMurshe" />
+                <ScalarProperty Name="MinistryOfHealthCode" ColumnName="MinistryOfHealthCode" />
+                <ScalarProperty Name="DriverPhone" ColumnName="DriverPhone" />
+                <ScalarProperty Name="TypeCustomer" ColumnName="TypeCustomer" />
+                <ScalarProperty Name="IsAgent" ColumnName="IsAgent" />
+                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
+                <ScalarProperty Name="IsRelocate" ColumnName="IsRelocate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="App_Version" ColumnName="App_Version" />
+                <ScalarProperty Name="PasswordPrinter" ColumnName="PasswordPrinter" />
+                <ScalarProperty Name="LastShownOrders" ColumnName="LastShownOrders" />
+                <ScalarProperty Name="App_Version_Control" ColumnName="App_Version_Control" />
+                <ScalarProperty Name="isCharge" ColumnName="isCharge" />
+                <ScalarProperty Name="App_Version_Prisetim" ColumnName="App_Version_Prisetim" />
+                <ScalarProperty Name="App_Version_Manager" ColumnName="App_Version_Manager" />
+                <ScalarProperty Name="IsAddInMlay" ColumnName="IsAddInMlay" />
+                <ScalarProperty Name="WeightTaraForArkava" ColumnName="WeightTaraForArkava" />
+                <ScalarProperty Name="IsChangeDayToPag" ColumnName="IsChangeDayToPag" />
+                <ScalarProperty Name="IsSelectCustInNeto" ColumnName="IsSelectCustInNeto" />
+                <ScalarProperty Name="IsChangeManufacturingDate" ColumnName="IsChangeManufacturingDate" />
+                <ScalarProperty Name="IsAddQtyInEnterToProduction" ColumnName="IsAddQtyInEnterToProduction" />
+                <ScalarProperty Name="IsNotShowToMlayInProcess" ColumnName="IsNotShowToMlayInProcess" />
+                <ScalarProperty Name="IsPrintBarcodeToCust" ColumnName="IsPrintBarcodeToCust" />
+                <ScalarProperty Name="IsLocations" ColumnName="IsLocations" />
+                <ScalarProperty Name="PrintMadbekaByBarcode" ColumnName="PrintMadbekaByBarcode" />
+                <ScalarProperty Name="IsSelectWorkerOnPirukNeto" ColumnName="IsSelectWorkerOnPirukNeto" />
+                <ScalarProperty Name="InsertIntoMlayProduction" ColumnName="InsertIntoMlayProduction" />
+                <ScalarProperty Name="IsCloseOrderWhenNotEverythingIsCollected" ColumnName="IsCloseOrderWhenNotEverythingIsCollected" />
+                <ScalarProperty Name="InsertMlayByBarcode" ColumnName="InsertMlayByBarcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.StatusTBL">
+              <MappingFragment StoreEntitySet="StatusTBL">
+                <ScalarProperty Name="StatusNumber" ColumnName="StatusNumber" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategory">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SubCategoryCode" ColumnName="SubCategoryCode" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierMlayTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.SupplierMlayTBL">
+              <MappingFragment StoreEntitySet="SupplierMlayTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuppliersTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.SuppliersTBL">
+              <MappingFragment StoreEntitySet="SuppliersTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Tara" ColumnName="Tara" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaraTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.TaraTBL">
+              <MappingFragment StoreEntitySet="TaraTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TaraName" ColumnName="TaraName" />
+                <ScalarProperty Name="Tara" ColumnName="Tara" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeCartTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.TypeCartTBL">
+              <MappingFragment StoreEntitySet="TypeCartTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CartName" ColumnName="CartName" />
+                <ScalarProperty Name="CartWeight" ColumnName="CartWeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeItemsTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.TypeItemsTBL">
+              <MappingFragment StoreEntitySet="TypeItemsTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TypeItem" ColumnName="TypeItem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WarehousesTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.WarehousesTBL">
+              <MappingFragment StoreEntitySet="WarehousesTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkerTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.WorkerTBL">
+              <MappingFragment StoreEntitySet="WorkerTBL">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WorkerName" ColumnName="WorkerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GMS_MLAY_tmp">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.GMS_MLAY_tmp">
+              <MappingFragment StoreEntitySet="GMS_MLAY_tmp">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="ManufacturingDate" ColumnName="ManufacturingDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="MlayNum" ColumnName="MlayNum" />
+                <ScalarProperty Name="IsInStouck" ColumnName="IsInStouck" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="SlaughterDate" ColumnName="SlaughterDate" />
+                <ScalarProperty Name="Warehouses" ColumnName="Warehouses" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mexicani_chain">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.mexicani_chain">
+              <MappingFragment StoreEntitySet="mexicani_chain">
+                <ScalarProperty Name="Makat" ColumnName="Makat" />
+                <ScalarProperty Name="Dea" ColumnName="Dea" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempCodeTBL">
+            <EntityTypeMapping TypeName="GMS_DAYAGModel.TempCodeTBL">
+              <MappingFragment StoreEntitySet="TempCodeTBL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TempCode" ColumnName="TempCode" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

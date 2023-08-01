@@ -14,6 +14,8 @@ namespace splitbar
 {
     public partial class Form1 : Form
     {
+        SqlConnection co = new SqlConnection(@"data source=199.203.140.245,41433;initial catalog=GMS_DAYAG;user id=sa;password=Abulele1972;MultipleActiveResultSets=True;");
+
         public Form1()
         {
             InitializeComponent();
@@ -33,86 +35,78 @@ namespace splitbar
         {
 
         }
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click_1(object sender, EventArgs e)
         {
-            // קבלת הערכים מה-TextBoxes והצ'קבוקס
-            string code = codeTextBox.Text;
-            int fromQut = int.Parse(fromQutTextBox.Text);
-            int toQut = int.Parse(toQutTextBox.Text);
-            int fromSKU = int.Parse(fromSKUTextBox.Text);
-            int toSKU = int.Parse(toSKUTextBox.Text);
-            int fromDate = int.Parse(fromDateTextBox.Text);
-            int toDate = int.Parse(toDateTextBox.Text);
-            int fromStocknum = int.Parse(fromStocknumTextBox.Text);
-            int toStocknum = int.Parse(toStocknumTextBox.Text);
-            bool ignoreStocknum = checkBox1.Checked;
+           
+                string code = codeTextBox.Text;
+                int fromQut = int.Parse(fromQutTextBox.Text);
+                int toQut = int.Parse(toQutTextBox.Text);
+                int fromSKU = int.Parse(fromSKUTextBox.Text);
+                int toSKU = int.Parse(toSKUTextBox.Text);
+                int fromDate = int.Parse(fromDateTextBox.Text);
+                int toDate = int.Parse(toDateTextBox.Text);
+                int fromStocknum = int.Parse(fromStocknumTextBox.Text);
+                int toStocknum = int.Parse(toStocknumTextBox.Text);
+               // bool ignoreStocknum = checkBox1.Checked;
 
-            // בניית מערך שמכיל את התווים מהקוד
-            string[] codeArray = new string[]
+            string[] codeArray = new string[4]; // נכון לגודל המערך
+
+            GetSubstring(codeArray, code, fromQut, toQut, "Qut");
+            GetSubstring(codeArray, code, fromSKU, toSKU, "SKU");
+            GetSubstring(codeArray, code, fromDate, toDate, "Date");
+            GetSubstring(codeArray, code, fromStocknum, toStocknum, "Stock");
+
+           for(int i=0;i< codeArray.Length; i++)
             {
-        GetSubstring(code, fromQut, toQut),          // Qut
-        GetSubstring(code, fromSKU, toSKU),          // SKU
-        GetSubstring(code, fromDate, toDate),        // Date
-        GetSubstring(code, fromStocknum, toStocknum) // Stock
-            };
-             string GetSubstring(string input, int startIndex, int length)
-            {
-                if (startIndex >= 0 && length > 0 && input.Length >= startIndex + length)
+                string name = codeArray[i];
+                string start = codeArray[i++];
+                string end = codeArray[i+2];
+
+                using (GMS_DAYAGEntities connection = new GMS_DAYAGEntities())
+            { 
+
+                try
                 {
-                    return input.Substring(startIndex, length);
+                    int.TryParse(name, out int fromstart);
+                    int.TryParse(start, out int toend);
+                    BarcodePartsTBL bt = new BarcodePartsTBL() { PartName= "Qut" , FromPosition = fromstart, ToPosition= toend };
+                    connection.BarcodePartsTBL.Add(bt);
+                    connection.SaveChanges();
+                      MessageBox.Show("add Barcode Parts");
+
+
                 }
-                return string.Empty;
+                catch (Exception ex)
+                {
+                    // במקרה של שגיאה, כדאי לטפל בה בהתאם לדרישות האפליקציה שלך
+                    Console.WriteLine("שגיאה בהתחברות למסד הנתונים: " + ex.Message);
+                }
             }
 
-
-
-
-            // בניית שאילתת החיפוש בהתאם לפרמטרים שהתקבלו
-            string sqlQuery = "SELECT * FROM YourTable WHERE Code = @code AND Quantity BETWEEN @fromQut AND @toQut " +
-                              "AND SKU BETWEEN @fromSKU AND @toSKU AND Date BETWEEN @fromDate AND @toDate ";
-
-            if (!ignoreStocknum)
-            {
-                sqlQuery += "AND StockNum BETWEEN @fromStocknum AND @toStocknum ";
-            }
-
-            // כמובן שכדאי להתאים את שמות העמודות והטבלה לבסיס הנתונים שלך
-
-            using (SqlConnection connection = new SqlConnection("Your_Connection_String"))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-                {
-                    // הגדרת הפרמטרים של השאילתה
-                    command.Parameters.AddWithValue("@code", code);
-                    command.Parameters.AddWithValue("@fromQut", fromQut);
-                    command.Parameters.AddWithValue("@toQut", toQut);
-                    command.Parameters.AddWithValue("@fromSKU", fromSKU);
-                    command.Parameters.AddWithValue("@toSKU", toSKU);
-                    command.Parameters.AddWithValue("@fromDate", fromDate);
-                    command.Parameters.AddWithValue("@toDate", toDate);
-
-                    if (!ignoreStocknum)
-                    {
-                        command.Parameters.AddWithValue("@fromStocknum", fromStocknum);
-                        command.Parameters.AddWithValue("@toStocknum", toStocknum);
-                    }
-
-                    // ביצוע השאילתה ועיבוד התוצאות
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-
-                    // כאן תוכל לעשות משהו עם התוצאות, לדוגמה להציגם בטבלה או ברשימת בחירה
-                    // dataGridView1.DataSource = dataTable;
-                    // listBox1.DataSource = dataTable;
-                    // וכדומה...
-                }
             }
         }
 
+        private static void GetSubstring(string[] codeArray, string input, int startIndex, int endIndex, string PartName)
+        {
+            string substring = input.Substring(startIndex, endIndex - startIndex + 1);
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+            // הוסף את התת-מחרוזת למערך
+            int index = Array.IndexOf(codeArray, null);
+            if (index != -1)
+            {
+                codeArray[index] = PartName + ": " + substring;
+            }
+        }
+    
+
+
+    // בניית שאילתת החיפוש בהתאם לפרמטרים שהתקבלו
+    //  string sqlQuery = "SELECT * FROM BarcodePartsTBL WHERE  ";
+
+
+
+
+    private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string tableName = "שם_הטבלה"; // השלם כאן את שם הטבלה בבסיס הנתונים שלך
 
@@ -142,6 +136,7 @@ namespace splitbar
                 }
             }
         }
-
+        
+       
     }
 }

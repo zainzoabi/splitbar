@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4c07c5f7b0b4063bd7e1f23c7513343" Name="Diagram1">
+        <EntityTypeShape EntityType="GMS_DAYAGModel.AccountItemsTBL" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.AccountTBL" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.AgentTBL" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.BarcodePartsTBL" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.carTBL" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.CatalogVetrinarTBL" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.CatArkavaTBL" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.Category" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.CategoryVetrinarTBL" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.catTBL" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.DistLineTBL" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.GMS_MLAY" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.GMS_MLAY_History" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.GMS_MLAY_SFIRA" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.GMS_MLAY_SFIRA_Test" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.GMS_MLAY_Test" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.InMlayItemsTBL" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.InMlayTBL" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.InMlayTBL_Test" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.ItemsPerAccountTBL" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.ItemsToChargeTBL" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.LocationsTBL" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.MlayInProcessTBL" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.OrderCategoryTBL" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.OrderHedHistoryTBL" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.OrderHedTBL" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.OrderRowHistoryTBL" Width="1.5" PointX="12.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.OrderRowTBL" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.ParamTBL" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.PirukTBL" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.PlastonTBL" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.RelocateHed" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.RelocateRow" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.SettingsTBL" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.StatusTBL" Width="1.5" PointX="16.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.SubCategory" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.SupplierMlayTBL" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.SuppliersTBL" Width="1.5" PointX="18.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.TaraTBL" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.TypeCartTBL" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.TypeItemsTBL" Width="1.5" PointX="18.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.WarehousesTBL" Width="1.5" PointX="16.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.WorkerTBL" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.GMS_MLAY_tmp" Width="1.5" PointX="4.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.mexicani_chain" Width="1.5" PointX="6.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GMS_DAYAGModel.TempCodeTBL" Width="1.5" PointX="8.75" PointY="19.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
